@@ -1,21 +1,14 @@
 <template>
-    <div>
-        <h1>hello</h1>
-    </div>
+  <router-view></router-view>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts"></script>
 
-export default defineComponent({
-    setup () {
-        
-
-        return {}
-    }
-})
-</script>
-
-<style scoped>
-
+<style scoped lang="scss">
+div {
+  h1 {
+    color: $red;
+  }
+}
 </style>
+@/utils/request
