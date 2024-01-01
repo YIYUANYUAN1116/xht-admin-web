@@ -7,6 +7,8 @@ import zhCn from "element-plus/dist/locale/zh-cn.mjs";
 import "virtual:svg-icons-register";
 //引入自定义插件对象:注册整个项目全局组件
 import gloalComponent from "@/components";
+//暗黑模式需要的样式
+import "element-plus/theme-chalk/dark/css-vars.css";
 import "@/styles/index.scss";
 import router from "./router";
 //引入仓库

@@ -12,7 +12,7 @@
     @click="fullScreen"
   ></el-button>
 
-  <el-popover placement="bottom" title="主题设置" :width="300" trigger="hover">
+  <el-popover placement="bottom" title="主题设置" :width="300" trigger="click">
     <!-- 表单元素 -->
     <el-form>
       <el-form-item label="主题颜色">
@@ -22,6 +22,7 @@
           size="small"
           show-alpha
           :predefine="predefineColors"
+          :teleported="false"
         />
       </el-form-item>
       <el-form-item label="暗黑模式">

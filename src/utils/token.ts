@@ -12,3 +12,10 @@ export const GET_TOKEN = () => {
 export const REMOVE_TOKEN = () => {
   localStorage.removeItem("TOKEN");
 };
+
+export const HEADER_TOKEN = () => {
+  const token = GET_TOKEN();
+  if (token) {
+    return { token: token };
+  }
+};
