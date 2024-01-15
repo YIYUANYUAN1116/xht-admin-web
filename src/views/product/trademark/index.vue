@@ -144,7 +144,7 @@ import type {
   TradeMarkResponseData,
   TradeMark,
 } from "@/api/product/trademark/type";
-import { GET_TOKEN } from "@/utils/token";
+import { HEADER_TOKEN } from "@/utils/token";
 //当前页码
 let pageNo = ref<number>(1);
 //每一页展示多少条数据
@@ -162,18 +162,14 @@ let trademarkParams = reactive<TradeMark>({
 });
 //获取el-form组件实例
 let formRef = ref();
-let headers: any;
-const token = GET_TOKEN();
-if (token) {
-  headers = { token: token };
-}
+let headers = HEADER_TOKEN();
 
 //获取已有品牌的接口封装为一个函数:在任何情况下向获取数据,调用次函数即可
 const getHasTrademark = async (pager = 1) => {
   // //当前页码
   pageNo.value = pager;
   const result: TradeMarkResponseData = await list(pageNo.value, limit.value);
-  console.log(result);
+
   if (result.code == 200) {
     //存储已有品牌总个数
     total.value = result.data.total;
