@@ -157,6 +157,24 @@ export const constantRoute = [
       },
     ],
   },
+
+  {
+    path: "/log",
+    component: () => import("@/layout/index.vue"),
+    name: "log",
+    redirect: "/log/logs",
+    children: [
+      {
+        path: "/log/logs",
+        component: () => import("@/views/log/index.vue"),
+        meta: {
+          hidden: false,
+          title: "日志系统",
+          icon: "Document",
+        },
+      }
+    ]
+  },
 ];
 
 //异步路由
