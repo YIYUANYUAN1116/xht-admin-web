@@ -5,7 +5,6 @@ export interface ResponseData {
   ok: boolean;
 }
 
-
 //属性与属性值的ts类型
 
 //属性值对象的ts类型

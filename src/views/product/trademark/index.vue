@@ -14,7 +14,7 @@
       <!-- table:---border:可以设置表格纵向是否有边框
                 table-column:---label:某一个列表 ---width:设置这列宽度 ---align:设置这一列对齐方式    
             -->
-      <el-table border  style="margin: 10px 0px"  :data="trademarkArr">
+      <el-table border style="margin: 10px 0px" :data="trademarkArr">
         <!--type=index 显示角标-->
         <el-table-column
           label="序号"

@@ -181,8 +181,8 @@ export const constantRoute = [
           title: "日志系统",
           icon: "Document",
         },
-      }
-    ]
+      },
+    ],
   },
 ];
 
