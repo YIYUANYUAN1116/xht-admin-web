@@ -15,7 +15,7 @@ request.interceptors.request.use((config) => {
     config.headers.token = userStore.token;
   }
   //config配置对象，headers属性请求头
-  console.log(config)
+
   return config;
 });
 

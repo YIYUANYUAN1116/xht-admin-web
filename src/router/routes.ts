@@ -120,6 +120,15 @@ export const constantRoute = [
     redirect: "/product/trademark",
     children: [
       {
+        path: "/product/category",
+        component: () => import("@/views/product/category/index.vue"),
+        name: "Category",
+        meta: {
+          title: "分类管理",
+          icon: "Briefcase",
+        },
+      },
+      {
         path: "/product/trademark",
         component: () => import("@/views/product/trademark/index.vue"),
         name: "Trademark",
@@ -172,8 +181,8 @@ export const constantRoute = [
           title: "日志系统",
           icon: "Document",
         },
-      }
-    ]
+      },
+    ],
   },
 ];
 
