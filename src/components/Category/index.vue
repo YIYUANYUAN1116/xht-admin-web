@@ -11,7 +11,7 @@ import { onMounted } from 'vue';
         >
           <!-- label:即为展示数据 value:即为select下拉菜单收集的数据 -->
           <el-option
-            v-for="(c1, index) in categoryStore.c1Arr"
+            v-for="(c1) in categoryStore.c1Arr"
             :key="c1.id"
             :label="c1.name"
             :value="c1.id"
@@ -26,7 +26,7 @@ import { onMounted } from 'vue';
           @change="handler1"
         >
           <el-option
-            v-for="(c2, index) in categoryStore.c2Arr"
+            v-for="(c2) in categoryStore.c2Arr"
             :key="c2.id"
             :label="c2.name"
             :value="c2.id"
@@ -40,7 +40,7 @@ import { onMounted } from 'vue';
           v-model="categoryStore.c3Id"
         >
           <el-option
-            v-for="(c3, index) in categoryStore.c3Arr"
+            v-for="(c3) in categoryStore.c3Arr"
             :key="c3.id"
             :label="c3.name"
             :value="c3.id"

@@ -4,7 +4,14 @@
     <el-card style="height: 80px">
         <el-form :inline="true" class="form">
          <el-form-item label="查询日期">
-            <el-input v-model="searchDate" placeholder="输入查询日期"></el-input>
+            <el-date-picker
+              v-model="searchDate"
+              type="datetimerange"
+              start-placeholder="Start date"
+              end-placeholder="End date"
+              value-format="x"
+            />
+            
          </el-form-item>
 
          <el-form-item label="">
@@ -41,12 +48,12 @@
     :pager-count="9"
         v-model:current-page="pageNo"
         v-model:page-size="limit"
-        :page-sizes="[3, 5, 7, 9]"
+        :page-sizes="[5,10,100]"
         :background="true"
         layout="prev, pager, next, jumper,->,sizes,total"
         :total="total"
       @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
+      @current-change="getLogList"
     />
 
 </template>
@@ -56,7 +63,7 @@ import {ref,onMounted} from "vue";
 import {Records} from "@/api/log/type"
 import {listLogs} from "@/api/log/index"
 
-const searchDate = ref();
+let searchDate = ref('')
 let logData = ref<Records>([]);
 //当前页码
 let pageNo = ref<number>(1);
@@ -67,22 +74,22 @@ let total = ref<number>(0);
 
 const getLogList = async (pager = 1) =>{
     pageNo.value = pager
-    const result = await listLogs(pageNo.value,limit.value);
+    const startTime = searchDate.value[0]?searchDate.value[0]:''
+    const endTime = searchDate.value[1]?searchDate.value[1]:''
+    console.log(startTime)
+    const result = await listLogs(pageNo.value,limit.value,startTime,endTime);
     if (result.code == 200) {
     //存储已有品牌总个数
     total.value = result.data.total;
     logData.value = result.data.records;
-    console.log(logData.value)
   }
 }
 
 const handleSizeChange =async () => {
-  
+  getLogList();
 }
 
-const handleCurrentChange =async () => {
-  
-}
+
 
 onMounted(()=>{
   getLogList();
@@ -90,11 +97,12 @@ onMounted(()=>{
 
 
 const search = () =>{
-    console.log("search")
+  getLogList();
 }
 
 const reset = () =>{
-    console.log("reset")
+  searchDate.value = ''
+  getLogList();
 }
 
 </script>
